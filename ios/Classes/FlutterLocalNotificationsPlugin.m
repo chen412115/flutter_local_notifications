@@ -60,7 +60,7 @@ bool initialized;
 bool launchingAppFromNotification;
 FlutterHeadlessDartRunner  *headlessRunner;
 NSUserDefaults *persistentState;
-NSObject<FlutterPluginRegistrar> *_registrar;
+NSObject<FlutterPluginRegistrar> *_flnp_registrar;
 
 + (bool) resumingFromBackground { return appResumingFromBackground; }
 UILocalNotification *launchNotification;
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, RepeatInterval) {
     }
     [registrar addApplicationDelegate:instance];
     [registrar addMethodCallDelegate:instance channel:channel];
-    _registrar = registrar;
+    _flnp_registrar = registrar;
 }
 
 - (void)pendingNotificationRequests:(FlutterResult _Nonnull)result {
